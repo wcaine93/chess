@@ -1,15 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  *
  * @author wcaine
  */
-import java.util.Map;
-import java.util.HashMap;
-
 public class ChessBoard {
    /**
     * White chess piece characters arranged by keys K, Q, R, B, N, P.
@@ -50,6 +45,9 @@ public class ChessBoard {
          System.out.println("Valid FEN entered! Constructing board!");
          this.boardState = FEN.getFEN6(inputFEN);
          System.out.println("Chessboard constructed!");
+      } else {
+        // set gameState to false to stop ChessPlayer#newGame() if FEN is invalid
+        this.gameState = false;
       }
    }
 
@@ -74,9 +72,9 @@ public class ChessBoard {
     */
    public void display() {
       // for design of board, see execution below
-      String header = "\n+-------------------+\n| ";
+      String header  = "\n+-------------------+\n| ";
       String endLine = " |\n| ";
-      String footer = "  |\n+-------------------+\n";
+      String footer  = "  |\n+-------------------+\n";
       
       
       
