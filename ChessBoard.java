@@ -47,7 +47,7 @@ public class ChessBoard {
          System.out.println("Chessboard constructed!");
       } else {
         // set gameState to false to stop ChessPlayer#newGame() if FEN is invalid
-        this.gameState = false;
+        this.gameState = false; // FIXME: Add re-prompt for user
       }
    }
 
