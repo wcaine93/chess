@@ -32,6 +32,12 @@ public class ChessBoard {
    private boolean gameState = true; // if the game is not ended
    
    
+   /**
+    * Assigns standard starting position as FEN6 to {@link #boardState this.boardState}.
+    * @see FEN#getFEN6(String stdFEN)
+    * 
+    * @see ChessPlayer#newGame()
+    */
    ChessBoard() {
       // if no FEN is entered, set the board with the standard chess starting position
       this.boardState = FEN.getFEN6("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
@@ -40,6 +46,12 @@ public class ChessBoard {
       System.out.println("Standard game initiated.");
    }
    
+   /**
+    * Assigns given position as FEN6 to {@link #boardState this.boardState} after validation by
+    * {@link FEN#validFEN(String) FEN.validFEN}. If invalid, assigns false to 
+    * {@link #boardState this.boardState} (default true) for user re-prompt via {@link ChessPlayer#newGame()}.
+    * @see FEN#getFEN6(String stdFEN)
+    */
    ChessBoard(String inputFEN) {
       if (FEN.validFEN(inputFEN)) {
          System.out.println("Valid FEN entered! Constructing board!");
