@@ -29,7 +29,7 @@ public class ChessBoard {
     */
    public final String blackSquare = "■", whiteSquare = "□";
    private String[] boardState; // encoded as a FEN6
-   private boolean gameState = true; // if the game is not ended
+   private boolean gameState; // if the game is not ended
    
    
    /**
@@ -43,6 +43,7 @@ public class ChessBoard {
       this.boardState = FEN.getFEN6("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
       System.out.println("Chessboard constructed!");
       
+      this.gameState = true;
       System.out.println("Standard game initiated.");
    }
    
@@ -56,10 +57,11 @@ public class ChessBoard {
       if (FEN.validFEN(inputFEN)) {
          System.out.println("Valid FEN entered! Constructing board!");
          this.boardState = FEN.getFEN6(inputFEN);
+         this.gameState = true;
          System.out.println("Chessboard constructed!");
       } else {
-        // set gameState to false to stop ChessPlayer#newGame() if FEN is invalid
-        this.gameState = false; // FIXME: Add re-prompt for user
+        // set gameState to false for use by ChessPlayer#newGame() if FEN is invalid
+        this.gameState = false;
       }
    }
 

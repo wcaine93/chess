@@ -35,8 +35,11 @@ public class ChessPlayer {
          board = new ChessBoard(inputFEN.trim());
       }
       
-      // terminate if ChessBoard construction fails
-      if (!board.isGameState()) return;
+      // reprompt user for FEN if ChessBoard construction fails
+      if (!board.isGameState()) {
+         System.out.println();
+         newGame();
+      };
       
       // inititate game upon user acceptance of rules
       System.out.println();
